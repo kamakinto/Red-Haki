@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5995F4D493D59062796ADDF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D6735038D72FF624608B24 /* libPods.a */; };
+		D4001B71DCE0B9FBC2C7F537 /* Pods_Red_Haki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422ED1C0117F4099FEABB86F /* Pods_Red_Haki.framework */; };
+		E247352A1CB7D234000AE110 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24735291CB7D234000AE110 /* MapKit.framework */; };
+		E247352E1CB7E399000AE110 /* NotSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E247352D1CB7E399000AE110 /* NotSafeViewController.swift */; };
 		E269C1871CB6B8AE009456D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C1861CB6B8AE009456D7 /* AppDelegate.swift */; };
-		E269C1891CB6B8AE009456D7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C1881CB6B8AE009456D7 /* FirstViewController.swift */; };
-		E269C18B1CB6B8AE009456D7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C18A1CB6B8AE009456D7 /* SecondViewController.swift */; };
 		E269C18E1CB6B8AF009456D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E269C18C1CB6B8AF009456D7 /* Main.storyboard */; };
 		E269C1901CB6B8AF009456D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E269C18F1CB6B8AF009456D7 /* Assets.xcassets */; };
 		E269C1931CB6B8AF009456D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E269C1911CB6B8AF009456D7 /* LaunchScreen.storyboard */; };
 		E269C19E1CB6B8AF009456D7 /* Red_HakiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C19D1CB6B8AF009456D7 /* Red_HakiTests.swift */; };
+		E269C1AB1CB6D529009456D7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C1AA1CB6D529009456D7 /* SettingsViewController.swift */; };
+		E269C1AD1CB6D56F009456D7 /* LookAroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C1AC1CB6D56F009456D7 /* LookAroundViewController.swift */; };
+		E2E54C051CB80711002BA956 /* StrangerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C041CB80711002BA956 /* StrangerViewController.swift */; };
+		E2E54C071CB8073F002BA956 /* PoliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C061CB8073F002BA956 /* PoliceViewController.swift */; };
+		E2E54C091CB80763002BA956 /* AccidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C081CB80763002BA956 /* AccidentViewController.swift */; };
+		E2E54C0B1CB82AEE002BA956 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C0A1CB82AEE002BA956 /* OtherViewController.swift */; };
+		E2E54C0D1CB88003002BA956 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C0C1CB88003002BA956 /* BaseService.swift */; };
+		E2E54C0F1CB888C2002BA956 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C0E1CB888C2002BA956 /* LoginViewController.swift */; };
+		E2E54C111CB88F76002BA956 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C101CB88F76002BA956 /* CreateAccountViewController.swift */; };
+		E2E54C131CB929CC002BA956 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C121CB929CC002BA956 /* LocationService.swift */; };
+		E2E54C151CB9405A002BA956 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C141CB9405A002BA956 /* UserService.swift */; };
+		E2E54C171CBAC0A6002BA956 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C161CBAC0A6002BA956 /* MapAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16160F1802A307D58F21D3AE /* Pods-Red Haki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Red Haki.release.xcconfig"; path = "Pods/Target Support Files/Pods-Red Haki/Pods-Red Haki.release.xcconfig"; sourceTree = "<group>"; };
+		3DD783499D84CA2417795E1E /* Pods-Red Haki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Red Haki.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Red Haki/Pods-Red Haki.debug.xcconfig"; sourceTree = "<group>"; };
+		422ED1C0117F4099FEABB86F /* Pods_Red_Haki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Red_Haki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D6735038D72FF624608B24 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E24735291CB7D234000AE110 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E247352D1CB7E399000AE110 /* NotSafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotSafeViewController.swift; sourceTree = "<group>"; };
 		E269C1831CB6B8AE009456D7 /* Red Haki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Red Haki.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E269C1861CB6B8AE009456D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E269C1881CB6B8AE009456D7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		E269C18A1CB6B8AE009456D7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E269C18D1CB6B8AF009456D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E269C18F1CB6B8AF009456D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E269C1921CB6B8AF009456D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +56,18 @@
 		E269C1991CB6B8AF009456D7 /* Red HakiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Red HakiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E269C19D1CB6B8AF009456D7 /* Red_HakiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Red_HakiTests.swift; sourceTree = "<group>"; };
 		E269C19F1CB6B8AF009456D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E269C1AA1CB6D529009456D7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E269C1AC1CB6D56F009456D7 /* LookAroundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookAroundViewController.swift; sourceTree = "<group>"; };
+		E2E54C041CB80711002BA956 /* StrangerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrangerViewController.swift; sourceTree = "<group>"; };
+		E2E54C061CB8073F002BA956 /* PoliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceViewController.swift; sourceTree = "<group>"; };
+		E2E54C081CB80763002BA956 /* AccidentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccidentViewController.swift; sourceTree = "<group>"; };
+		E2E54C0A1CB82AEE002BA956 /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
+		E2E54C0C1CB88003002BA956 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		E2E54C0E1CB888C2002BA956 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E2E54C101CB88F76002BA956 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		E2E54C121CB929CC002BA956 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		E2E54C141CB9405A002BA956 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E2E54C161CBAC0A6002BA956 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5995F4D493D59062796ADDF /* libPods.a in Frameworks */,
+				E247352A1CB7D234000AE110 /* MapKit.framework in Frameworks */,
+				D4001B71DCE0B9FBC2C7F537 /* Pods_Red_Haki.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +91,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30173806F386A05342C2AD71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3DD783499D84CA2417795E1E /* Pods-Red Haki.debug.xcconfig */,
+				16160F1802A307D58F21D3AE /* Pods-Red Haki.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3716514DE47D3A7ACF1512A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E24735291CB7D234000AE110 /* MapKit.framework */,
+				B8D6735038D72FF624608B24 /* libPods.a */,
+				422ED1C0117F4099FEABB86F /* Pods_Red_Haki.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E269C17A1CB6B8AE009456D7 = {
 			isa = PBXGroup;
 			children = (
 				E269C1851CB6B8AE009456D7 /* Red Haki */,
 				E269C19C1CB6B8AF009456D7 /* Red HakiTests */,
 				E269C1841CB6B8AE009456D7 /* Products */,
+				30173806F386A05342C2AD71 /* Pods */,
+				3716514DE47D3A7ACF1512A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,12 +134,23 @@
 			isa = PBXGroup;
 			children = (
 				E269C1861CB6B8AE009456D7 /* AppDelegate.swift */,
-				E269C1881CB6B8AE009456D7 /* FirstViewController.swift */,
-				E269C18A1CB6B8AE009456D7 /* SecondViewController.swift */,
+				E2E54C0E1CB888C2002BA956 /* LoginViewController.swift */,
+				E2E54C101CB88F76002BA956 /* CreateAccountViewController.swift */,
+				E2E54C0A1CB82AEE002BA956 /* OtherViewController.swift */,
 				E269C18C1CB6B8AF009456D7 /* Main.storyboard */,
+				E269C1AC1CB6D56F009456D7 /* LookAroundViewController.swift */,
+				E269C1AA1CB6D529009456D7 /* SettingsViewController.swift */,
 				E269C18F1CB6B8AF009456D7 /* Assets.xcassets */,
 				E269C1911CB6B8AF009456D7 /* LaunchScreen.storyboard */,
 				E269C1941CB6B8AF009456D7 /* Info.plist */,
+				E247352D1CB7E399000AE110 /* NotSafeViewController.swift */,
+				E2E54C041CB80711002BA956 /* StrangerViewController.swift */,
+				E2E54C061CB8073F002BA956 /* PoliceViewController.swift */,
+				E2E54C081CB80763002BA956 /* AccidentViewController.swift */,
+				E2E54C0C1CB88003002BA956 /* BaseService.swift */,
+				E2E54C121CB929CC002BA956 /* LocationService.swift */,
+				E2E54C141CB9405A002BA956 /* UserService.swift */,
+				E2E54C161CBAC0A6002BA956 /* MapAnnotation.swift */,
 			);
 			path = "Red Haki";
 			sourceTree = "<group>";
@@ -106,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E269C1A21CB6B8AF009456D7 /* Build configuration list for PBXNativeTarget "Red Haki" */;
 			buildPhases = (
+				8D66084994404DB990F24784 /* Check Pods Manifest.lock */,
 				E269C17F1CB6B8AE009456D7 /* Sources */,
 				E269C1801CB6B8AE009456D7 /* Frameworks */,
 				E269C1811CB6B8AE009456D7 /* Resources */,
+				0FEB7BE7134DCD2EB233FDA2 /* Embed Pods Frameworks */,
+				95B15C2F7247BA736920B898 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,6 +217,11 @@
 				TargetAttributes = {
 					E269C1821CB6B8AE009456D7 = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					E269C1981CB6B8AF009456D7 = {
 						CreatedOnToolsVersion = 7.3;
@@ -195,14 +268,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FEB7BE7134DCD2EB233FDA2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Red Haki/Pods-Red Haki-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D66084994404DB990F24784 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		95B15C2F7247BA736920B898 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Red Haki/Pods-Red Haki-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E269C17F1CB6B8AE009456D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E269C18B1CB6B8AE009456D7 /* SecondViewController.swift in Sources */,
+				E2E54C131CB929CC002BA956 /* LocationService.swift in Sources */,
+				E2E54C0F1CB888C2002BA956 /* LoginViewController.swift in Sources */,
+				E2E54C091CB80763002BA956 /* AccidentViewController.swift in Sources */,
+				E2E54C071CB8073F002BA956 /* PoliceViewController.swift in Sources */,
 				E269C1871CB6B8AE009456D7 /* AppDelegate.swift in Sources */,
-				E269C1891CB6B8AE009456D7 /* FirstViewController.swift in Sources */,
+				E2E54C111CB88F76002BA956 /* CreateAccountViewController.swift in Sources */,
+				E269C1AB1CB6D529009456D7 /* SettingsViewController.swift in Sources */,
+				E247352E1CB7E399000AE110 /* NotSafeViewController.swift in Sources */,
+				E2E54C051CB80711002BA956 /* StrangerViewController.swift in Sources */,
+				E2E54C171CBAC0A6002BA956 /* MapAnnotation.swift in Sources */,
+				E269C1AD1CB6D56F009456D7 /* LookAroundViewController.swift in Sources */,
+				E2E54C151CB9405A002BA956 /* UserService.swift in Sources */,
+				E2E54C0B1CB82AEE002BA956 /* OtherViewController.swift in Sources */,
+				E2E54C0D1CB88003002BA956 /* BaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +463,7 @@
 		};
 		E269C1A31CB6B8AF009456D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD783499D84CA2417795E1E /* Pods-Red Haki.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Red Haki/Info.plist";
@@ -342,6 +475,7 @@
 		};
 		E269C1A41CB6B8AF009456D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16160F1802A307D58F21D3AE /* Pods-Red Haki.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Red Haki/Info.plist";
@@ -394,6 +528,7 @@
 				E269C1A41CB6B8AF009456D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E269C1A51CB6B8AF009456D7 /* Build configuration list for PBXNativeTarget "Red HakiTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +537,7 @@
 				E269C1A71CB6B8AF009456D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import CoreLocation
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
+    override init(){
+        Firebase.defaultConfig().persistenceEnabled = true
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+        self.window?.rootViewController = loginVC
+        
+        LocationService.sharedInstance.startUpdatingLocation()
+        
         return true
     }
 
@@ -42,5 +55,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
 
+}

@@ -1,0 +1,6 @@
+framework module Pods_Red_Haki {
+  umbrella header "Pods-Red Haki-umbrella.h"
+
+  export *
+  module * { export * }
+}
