@@ -63,7 +63,7 @@ class UserStatus{
     
     func setUserStatusData(snapshot: FDataSnapshot){
         let json = snapshot.value as! Dictionary<String, AnyObject>
-        self.type = json["section"] as? String ?? ""
+        self.section = json["section"] as? String ?? ""
         self.type = json["type"] as? String ?? ""
         self.desc = json["desc"] as? String ?? ""
         self.date = json["date"] as? String ?? ""
