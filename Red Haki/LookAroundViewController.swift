@@ -28,13 +28,13 @@ class LookAroundViewController: UIViewController, MKMapViewDelegate {
     var Long = LocationService.sharedInstance.longitude
     mapView.showsUserLocation = true
     mapView.userTrackingMode = MKUserTrackingMode.Follow
-        
+    
         
         //for loop. at the end of each loop, append the object
         for index in 0...5 {
-            var long = (Long + 0.001)
-            var lat = (Lat + 0.005)
-            var anno = MyAnnotation(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long), title: "Test Anno \(index)", subtitle: "Info \(index)")
+            let long = Long + (0.0002 * Double(index))
+            let lat = Lat + (0.0003 * Double(index))
+            let anno = MyAnnotation(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long ), title: "Test Anno \(index)", subtitle: "Info \(index)")
             mapView.addAnnotation(anno)
         }
 
@@ -55,11 +55,13 @@ class LookAroundViewController: UIViewController, MKMapViewDelegate {
         })
 
         query.observeEventType(.KeyExited, withBlock: { (key: String!, location: CLLocation!) in
-            self.mapView.removeAnnotation(self.annotationsDict[key]!)
-            self.annotationsDict[key] = nil
+            if key != geo_user {
+                self.mapView.removeAnnotation(self.annotationsDict[key]!)
+                self.annotationsDict[key] = nil
+            }
         })
- //Set user safety switch
-        if UserData.sharedInstance.status_flag {
+        //Set user safety switch
+        if !UserData.sharedInstance.status_flag {
             safetyStatusLabel.text = "Safe"
             safetyStatusSwitch.setOn(false, animated: false)
             
@@ -82,8 +84,8 @@ class LookAroundViewController: UIViewController, MKMapViewDelegate {
             var json = snapshot.value as! Dictionary<String, AnyObject>
             var otherUserSection = json["section"] as? String ?? "unknown"
             var otherUserType = json["type"] as? String ?? "unknown"
-            annotation.title = otherUserType
-            annotation.subtitle = otherUserSection
+            annotation.title = otherUserSection
+            annotation.subtitle = otherUserType
         }, withCancelBlock: { error in
         print(error.description)
         })
@@ -97,13 +99,24 @@ class LookAroundViewController: UIViewController, MKMapViewDelegate {
         //change state of safety label
         if safetyStatusSwitch.on{
             safetyStatusLabel.text = "Not Safe"
+            //update firebase status
+            let status_flag = ["status_flag": "true"]
+            CURRENT_USER.updateChildValues(status_flag)
+            //navigate them to the Not Safe view Controller
+            tabBarController?.selectedIndex = 2
+            tabBarController?.tabBar.hidden = false
+            self.navigationController?.popToRootViewControllerAnimated(false)
         }else{
             safetyStatusLabel.text = "Safe"
-           // GEOFIRE.removeKey(geo_user) //remove their geolocations
+            GEOFIRE.removeKey(geo_user)
+            //update firebase status
+            let status_flag = ["status_flag": "false"]
+            CURRENT_USER.updateChildValues(status_flag)
+            self.mapView.removeAnnotation(self.annotationsDict[geo_user]!)
+            
+            self.annotationsDict[geo_user] = nil
+            UserData.sharedInstance.status_flag = false
         }
-        
-        //stop sending location to firebase
-        //change state on local user value status_flag
         //if it the type was "following", alert loved ones you are fine
         //(If Possible) change color of the map marker back to the normal blue
     }

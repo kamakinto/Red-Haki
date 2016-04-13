@@ -54,7 +54,7 @@ class PoliceViewController: UIViewController, UIPickerViewDelegate{
 
         //configure data to send
         UserStatus.sharedInstance.updateUserStatus("police", type: problem, desc: description, date: Timestamp, longitude: longitude, latitude: latitude, mediaUrl: "https://")
-        UserData.sharedInstance.status_flag = false
+        UserData.sharedInstance.status_flag = true
         let statusUpdate = UserStatus.sharedInstance.toJson()
         CURRENT_USER_STATUS.setValue(statusUpdate)
         
