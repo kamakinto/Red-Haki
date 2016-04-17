@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5995F4D493D59062796ADDF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D6735038D72FF624608B24 /* libPods.a */; };
 		D4001B71DCE0B9FBC2C7F537 /* Pods_Red_Haki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422ED1C0117F4099FEABB86F /* Pods_Red_Haki.framework */; };
 		E247352A1CB7D234000AE110 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24735291CB7D234000AE110 /* MapKit.framework */; };
 		E247352E1CB7E399000AE110 /* NotSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E247352D1CB7E399000AE110 /* NotSafeViewController.swift */; };
@@ -28,6 +27,8 @@
 		E2E54C131CB929CC002BA956 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C121CB929CC002BA956 /* LocationService.swift */; };
 		E2E54C151CB9405A002BA956 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C141CB9405A002BA956 /* UserService.swift */; };
 		E2E54C171CBAC0A6002BA956 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C161CBAC0A6002BA956 /* MapAnnotation.swift */; };
+		E2E54C1B1CBE96E5002BA956 /* WatchMyBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C1A1CBE96E5002BA956 /* WatchMyBackViewController.swift */; };
+		E2E54C1D1CBEA248002BA956 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C1C1CBEA248002BA956 /* MessageComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		E2E54C121CB929CC002BA956 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		E2E54C141CB9405A002BA956 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		E2E54C161CBAC0A6002BA956 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
+		E2E54C1A1CBE96E5002BA956 /* WatchMyBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchMyBackViewController.swift; sourceTree = "<group>"; };
+		E2E54C1C1CBEA248002BA956 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5995F4D493D59062796ADDF /* libPods.a in Frameworks */,
 				E247352A1CB7D234000AE110 /* MapKit.framework in Frameworks */,
 				D4001B71DCE0B9FBC2C7F537 /* Pods_Red_Haki.framework in Frameworks */,
 			);
@@ -151,6 +153,8 @@
 				E2E54C121CB929CC002BA956 /* LocationService.swift */,
 				E2E54C141CB9405A002BA956 /* UserService.swift */,
 				E2E54C161CBAC0A6002BA956 /* MapAnnotation.swift */,
+				E2E54C1A1CBE96E5002BA956 /* WatchMyBackViewController.swift */,
+				E2E54C1C1CBEA248002BA956 /* MessageComposer.swift */,
 			);
 			path = "Red Haki";
 			sourceTree = "<group>";
@@ -217,6 +221,7 @@
 				TargetAttributes = {
 					E269C1821CB6B8AE009456D7 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = R4X82C7MHL;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -321,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E54C1B1CBE96E5002BA956 /* WatchMyBackViewController.swift in Sources */,
 				E2E54C131CB929CC002BA956 /* LocationService.swift in Sources */,
 				E2E54C0F1CB888C2002BA956 /* LoginViewController.swift in Sources */,
 				E2E54C091CB80763002BA956 /* AccidentViewController.swift in Sources */,
@@ -333,6 +339,7 @@
 				E2E54C171CBAC0A6002BA956 /* MapAnnotation.swift in Sources */,
 				E269C1AD1CB6D56F009456D7 /* LookAroundViewController.swift in Sources */,
 				E2E54C151CB9405A002BA956 /* UserService.swift in Sources */,
+				E2E54C1D1CBEA248002BA956 /* MessageComposer.swift in Sources */,
 				E2E54C0B1CB82AEE002BA956 /* OtherViewController.swift in Sources */,
 				E2E54C0D1CB88003002BA956 /* BaseService.swift in Sources */,
 			);
@@ -466,10 +473,15 @@
 			baseConfigurationReference = 3DD783499D84CA2417795E1E /* Pods-Red Haki.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Red Haki/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Red-Haki";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -478,10 +490,15 @@
 			baseConfigurationReference = 16160F1802A307D58F21D3AE /* Pods-Red Haki.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Red Haki/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Red-Haki";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
