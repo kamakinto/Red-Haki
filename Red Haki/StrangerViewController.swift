@@ -43,7 +43,25 @@ class StrangerViewController: UIViewController, UIPickerViewDelegate {
     @IBAction func notifyButton(sender: AnyObject) {
         let problem = statusPicked
         let description = detailsTextView.text
-        print("\(problem), here is what happened:\(description)")
+        let longitude = LocationService.sharedInstance.longitude
+        let latitude = LocationService.sharedInstance.latitude
+        
+        if problem == "Followed" {
+            
+            //send info to friends that you are being followed. do NOT upload geolocation to general public.
+        } else{
+        
+        //configure data to send
+        UserStatus.sharedInstance.updateUserStatus("Stranger", type: problem, desc: description, date: Timestamp, longitude: longitude, latitude: latitude, mediaUrl: "https://")
+        UserData.sharedInstance.status_flag = true
+        let statusUpdate = UserStatus.sharedInstance.toJson()
+        CURRENT_USER_STATUS.setValue(statusUpdate)
+        }
+        
+        // navigate to look around tab
+        tabBarController?.selectedIndex = 1
+        tabBarController?.tabBar.hidden = false
+        self.navigationController?.popToRootViewControllerAnimated(false)
         
     }
     

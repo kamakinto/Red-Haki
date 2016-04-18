@@ -18,7 +18,7 @@ class UserData {
     
     var uid: String = ""
     var username: String = ""
-    var status_flag: Bool = false
+    var status_flag: Bool = false //false = safe
     var first_name: String = ""
     var last_name: String = ""
     var sex: String = ""
@@ -32,7 +32,7 @@ class UserData {
     //set singleton values
         self.uid = uid
         self.username = json["username"] as? String ?? ""
-        self.status_flag = json["status_flag"] as? Bool ?? true
+        self.status_flag = json["status_flag"] as? Bool ?? false
         self.first_name = json["first_name"] as? String ?? ""
         self.last_name = json["last_name"] as? String ?? ""
         self.sex = json["sex"] as? String ?? ""

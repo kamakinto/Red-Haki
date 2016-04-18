@@ -44,7 +44,21 @@ class AccidentViewController: UIViewController, UIPickerViewDelegate {
     @IBAction func accidentNotifButton(sender: AnyObject) {
         let problem = accidentPicked
         let description = accidentDescText.text
-           print("\(problem), here is what happened:\(description)")
+        let longitude = LocationService.sharedInstance.longitude
+        let latitude = LocationService.sharedInstance.latitude
+
+        //configure data to send
+        UserStatus.sharedInstance.updateUserStatus("Accident", type: problem, desc: description, date: Timestamp, longitude: longitude, latitude: latitude, mediaUrl: "https://")
+        UserData.sharedInstance.status_flag = true
+        let statusUpdate = UserStatus.sharedInstance.toJson()
+        CURRENT_USER_STATUS.setValue(statusUpdate)
+        
+        // navigate to look around tab
+        tabBarController?.selectedIndex = 1
+        tabBarController?.tabBar.hidden = false
+        self.navigationController?.popToRootViewControllerAnimated(false)
+        
+
     }
 
 }

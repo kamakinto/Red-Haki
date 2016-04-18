@@ -45,7 +45,7 @@ class LocationService:NSObject, CLLocationManagerDelegate {
         //use for real time update location
         updateLocation(self.currentLocation!)
         
-        if !UserData.sharedInstance.status_flag {
+        if UserData.sharedInstance.status_flag {
             updateFirebaseLocation()
         }
         
@@ -71,7 +71,7 @@ class LocationService:NSObject, CLLocationManagerDelegate {
             if (error != nil) {
                 print("An error occured: \(error)")
             } else {
-                print("Saved location successfully!")
+                print("you are unsafe. user_stats = true")
             }
         }
     }

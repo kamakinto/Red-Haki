@@ -16,9 +16,9 @@ class NotSafeViewController: UITableViewController{
     
     
     override func viewDidLoad() {
-        names = ["Stranger","Police","Accident","Other"]
-        identities = ["Stranger", "Police", "Accident", "Other"]
-        subtitles = ["You feel unsafe around a stranger", "You feel unsafe around the Police", "There has been an accident", "You feel unsafe"]
+        names = ["Stranger","Police","Accident","Watch My Back","Other"]
+        identities = ["Stranger", "Police", "Accident", "Watch My Back", "Other"]
+        subtitles = ["You feel unsafe around a stranger", "You feel unsafe around the Police", "There has been an accident","Have a friend watch your back", "You feel unsafe"]
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
