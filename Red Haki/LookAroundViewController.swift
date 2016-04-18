@@ -51,7 +51,10 @@ class LookAroundViewController: UIViewController, MKMapViewDelegate {
         })
         
         query.observeEventType(.KeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-            self.addMapAnnotations(key, location: location)
+            if key != geo_user{
+                 self.addMapAnnotations(key, location: location)
+            }
+           
         })
 
         query.observeEventType(.KeyExited, withBlock: { (key: String!, location: CLLocation!) in
@@ -112,7 +115,7 @@ class LookAroundViewController: UIViewController, MKMapViewDelegate {
             //update firebase status
             let status_flag = ["status_flag": "false"]
             CURRENT_USER.updateChildValues(status_flag)
-            self.mapView.removeAnnotation(self.annotationsDict[geo_user]!)
+            //self.mapView.removeAnnotation(self.annotationsDict[geo_user]!)
             
             self.annotationsDict[geo_user] = nil
             UserData.sharedInstance.status_flag = false
