@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
-
+import CoreLocation
 
 
 class UserData {
@@ -101,3 +101,68 @@ class UserStatus{
         }
     
 }
+
+
+class WMBUserStatus{
+    public static let sharedInstance = WMBUserStatus()
+    var type: String = "Watch My Back"
+    var desc: String = ""
+    var date: String = ""
+    var longitude: Double = -1
+    var latitude: Double = -1
+    var destLong: Double = -1
+    var destLat: Double = -1
+    var media_url: String = ""
+    var walkingHome: Bool = false
+    
+    func setUserStatusData(snapshot: FDataSnapshot){
+        let json = snapshot.value as! Dictionary<String, AnyObject>
+        self.type = json["type"] as? String ?? ""
+        self.desc = json["desc"] as? String ?? ""
+        self.date = json["date"] as? String ?? ""
+        self.longitude = json["longitude"] as? Double ?? -1
+        self.latitude = json["latitude"] as? Double ?? -1
+        self.destLong = json["dest_longitude"] as? Double ?? -1
+        self.destLat = json["dest_latitude"] as? Double ?? -1
+        self.media_url = json["media_url"] as? String ?? "https://"
+        self.walkingHome = json["walking_home"] as? Bool ?? false
+        
+        
+    }
+    func toJson() -> Dictionary<String, AnyObject> {
+        return [
+            "type" : self.type,
+            "desc" : self.desc,
+            "date" : self.date,
+            "longitude" : self.longitude,
+            "latitude" : self.latitude,
+            "dest_longitude" : self.destLong,
+            "dest_latitude" : self.destLat,
+            "media_url" : self.media_url,
+            "walking_home" : self.walkingHome,
+            
+        ];
+    }
+    
+    func updateUserStatus(type: String, desc: String, date: String, longitude: Double, latitude: Double,destLong: Double, destLat: Double, mediaUrl: String, walkingHome: Bool){
+        self.type = type
+        self.desc = desc
+        self.date = date
+        self.longitude = longitude
+        self.latitude = latitude
+        self.destLong = destLong
+        self.destLat = destLat
+        self.media_url = mediaUrl
+        self.walkingHome = walkingHome
+    }
+    
+    func updateUserStatus(longitude: Double, latitude: Double, destLong: Double, destLat: Double){
+        self.longitude = longitude
+        self.latitude = latitude
+        self.destLong = destLong
+        self.destLat = destLat
+    }
+    
+}
+
+

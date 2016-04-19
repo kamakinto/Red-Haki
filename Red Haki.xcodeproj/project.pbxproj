@@ -17,6 +17,7 @@
 		E269C19E1CB6B8AF009456D7 /* Red_HakiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C19D1CB6B8AF009456D7 /* Red_HakiTests.swift */; };
 		E269C1AB1CB6D529009456D7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C1AA1CB6D529009456D7 /* SettingsViewController.swift */; };
 		E269C1AD1CB6D56F009456D7 /* LookAroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C1AC1CB6D56F009456D7 /* LookAroundViewController.swift */; };
+		E2B48AC71CC65C15002FF8B3 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B48AC61CC65C15002FF8B3 /* LocationSearchTable.swift */; };
 		E2E54C051CB80711002BA956 /* StrangerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C041CB80711002BA956 /* StrangerViewController.swift */; };
 		E2E54C071CB8073F002BA956 /* PoliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C061CB8073F002BA956 /* PoliceViewController.swift */; };
 		E2E54C091CB80763002BA956 /* AccidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E54C081CB80763002BA956 /* AccidentViewController.swift */; };
@@ -59,6 +60,7 @@
 		E269C19F1CB6B8AF009456D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E269C1AA1CB6D529009456D7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E269C1AC1CB6D56F009456D7 /* LookAroundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookAroundViewController.swift; sourceTree = "<group>"; };
+		E2B48AC61CC65C15002FF8B3 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		E2E54C041CB80711002BA956 /* StrangerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrangerViewController.swift; sourceTree = "<group>"; };
 		E2E54C061CB8073F002BA956 /* PoliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceViewController.swift; sourceTree = "<group>"; };
 		E2E54C081CB80763002BA956 /* AccidentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccidentViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				E2E54C101CB88F76002BA956 /* CreateAccountViewController.swift */,
 				E2E54C0A1CB82AEE002BA956 /* OtherViewController.swift */,
 				E269C18C1CB6B8AF009456D7 /* Main.storyboard */,
+				E2B48AC61CC65C15002FF8B3 /* LocationSearchTable.swift */,
 				E269C1AC1CB6D56F009456D7 /* LookAroundViewController.swift */,
 				E269C1AA1CB6D529009456D7 /* SettingsViewController.swift */,
 				E269C18F1CB6B8AF009456D7 /* Assets.xcassets */,
@@ -340,6 +343,7 @@
 				E269C1AD1CB6D56F009456D7 /* LookAroundViewController.swift in Sources */,
 				E2E54C151CB9405A002BA956 /* UserService.swift in Sources */,
 				E2E54C1D1CBEA248002BA956 /* MessageComposer.swift in Sources */,
+				E2B48AC71CC65C15002FF8B3 /* LocationSearchTable.swift in Sources */,
 				E2E54C0B1CB82AEE002BA956 /* OtherViewController.swift in Sources */,
 				E2E54C0D1CB88003002BA956 /* BaseService.swift in Sources */,
 			);

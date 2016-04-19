@@ -37,6 +37,10 @@ class LocationService:NSObject, CLLocationManagerDelegate {
         self.locationManager?.stopUpdatingLocation()
     }
     
+    func getCurrentLocation(){
+        self.locationManager?.requestLocation()
+    }
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocationCoordinate2D = manager.location!.coordinate
         self.currentLocation = location
@@ -47,6 +51,10 @@ class LocationService:NSObject, CLLocationManagerDelegate {
         
         if UserData.sharedInstance.status_flag {
             updateFirebaseLocation()
+        }
+        
+        if WMBUserStatus.sharedInstance.walkingHome {
+            updateWMBLocation()
         }
         
     }
@@ -74,6 +82,13 @@ class LocationService:NSObject, CLLocationManagerDelegate {
                 print("you are unsafe. user_stats = true")
             }
         }
+    }
+    
+    func updateWMBLocation(){
+        //send update to firebase with log, lat, and destination info
+        var loc = ["longitude": self.longitude,
+                   "latitude" : self.latitude]
+       CURRENT_USER_STATUS_WMB.updateChildValues(loc)
     }
     
     

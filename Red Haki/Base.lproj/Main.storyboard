@@ -132,24 +132,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W48-Lx-ZiY">
-                                <rect key="frame" x="243" y="397" width="115" height="30"/>
-                                <state key="normal" title="Watch My Back! "/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NFS-xN-S8J">
+                                <rect key="frame" x="0.0" y="40" width="600" height="357"/>
                                 <connections>
-                                    <action selector="watchMyBackButton:" destination="ehq-TV-JKt" eventType="touchUpInside" id="Tik-GZ-dzz"/>
+                                    <outlet property="delegate" destination="ehq-TV-JKt" id="9q9-pg-tP4"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DK-O8-HE7">
+                                <rect key="frame" x="20" y="463" width="560" height="66"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Watch My Back! "/>
+                                <state key="disabled" title="Choose Your Desintation Above"/>
+                                <connections>
+                                    <action selector="watchMyBackButton:" destination="ehq-TV-JKt" eventType="touchUpInside" id="4rq-gi-pda"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqx-Kj-NFx">
+                                <rect key="frame" x="20" y="434" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4q6-zo-CcT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="I am safe"/>
+                                <connections>
+                                    <action selector="safeButton:" destination="ehq-TV-JKt" eventType="touchUpInside" id="g8P-cl-X6N"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kz6-bS-hra" firstAttribute="top" secondItem="W48-Lx-ZiY" secondAttribute="bottom" constant="173" id="NeU-Rx-QNR"/>
-                            <constraint firstItem="W48-Lx-ZiY" firstAttribute="centerX" secondItem="A7Z-pe-Qsi" secondAttribute="centerX" id="wW7-yn-EHY"/>
+                            <constraint firstItem="NFS-xN-S8J" firstAttribute="leading" secondItem="A7Z-pe-Qsi" secondAttribute="leading" id="3Fw-ns-BKO"/>
+                            <constraint firstItem="kz6-bS-hra" firstAttribute="top" secondItem="8DK-O8-HE7" secondAttribute="bottom" constant="71" id="3dv-y5-4EX"/>
+                            <constraint firstItem="8DK-O8-HE7" firstAttribute="top" secondItem="NFS-xN-S8J" secondAttribute="bottom" constant="66" id="8aT-0q-JKW"/>
+                            <constraint firstItem="Cqx-Kj-NFx" firstAttribute="leading" secondItem="A7Z-pe-Qsi" secondAttribute="leadingMargin" id="Ahv-t1-6EY"/>
+                            <constraint firstItem="NFS-xN-S8J" firstAttribute="centerX" secondItem="Cqx-Kj-NFx" secondAttribute="centerX" id="IsK-W5-4TB"/>
+                            <constraint firstAttribute="trailing" secondItem="NFS-xN-S8J" secondAttribute="trailing" id="MJO-o9-u9l"/>
+                            <constraint firstItem="Cqx-Kj-NFx" firstAttribute="trailing" secondItem="8DK-O8-HE7" secondAttribute="trailing" id="hVk-ia-12C"/>
+                            <constraint firstItem="kz6-bS-hra" firstAttribute="top" secondItem="Cqx-Kj-NFx" secondAttribute="bottom" constant="136" id="nHZ-eA-9jb"/>
+                            <constraint firstItem="NFS-xN-S8J" firstAttribute="top" secondItem="X0u-9l-VTd" secondAttribute="bottom" constant="20" id="uIR-dU-cus"/>
+                            <constraint firstItem="Cqx-Kj-NFx" firstAttribute="leading" secondItem="8DK-O8-HE7" secondAttribute="leading" id="x1D-5t-jQF"/>
+                            <constraint firstItem="Cqx-Kj-NFx" firstAttribute="top" secondItem="NFS-xN-S8J" secondAttribute="bottom" constant="37" id="yuU-zd-nPb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="NFS-xN-S8J" id="qfg-Oh-UGK"/>
+                        <outlet property="safeButton" destination="Cqx-Kj-NFx" id="3CI-gq-MVO"/>
+                        <outlet property="watchMyBackButton" destination="8DK-O8-HE7" id="8TI-au-oaS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuw-58-fe7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="176" y="-969"/>
+            <point key="canvasLocation" x="340" y="-973"/>
+        </scene>
+        <!--Location Search Table-->
+        <scene sceneID="4QF-Vz-c2D">
+            <objects>
+                <tableViewController storyboardIdentifier="LocationSearchTable" id="LdC-Zx-7th" customClass="LocationSearchTable" customModule="Red_Haki" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hrh-Yd-akQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Mfr-fd-Y7R" detailTextLabel="cgL-Fu-db3" style="IBUITableViewCellStyleSubtitle" id="wgN-Er-XzQ">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wgN-Er-XzQ" id="u2W-Zs-sfP">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mfr-fd-Y7R">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cgL-Fu-db3">
+                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LdC-Zx-7th" id="3dG-aQ-zOF"/>
+                            <outlet property="delegate" destination="LdC-Zx-7th" id="G2J-Lg-egb"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="utF-5g-fcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-375" y="-973"/>
         </scene>
         <!--Stranger View Controller-->
         <scene sceneID="y6O-Kx-rOy">

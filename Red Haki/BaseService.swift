@@ -29,6 +29,13 @@ var CURRENT_USER_STATUS: Firebase{
     return currentUserStatus!
 }
 
+var CURRENT_USER_STATUS_WMB: Firebase{
+    let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+    let currentUserStatus = Firebase(url: "\(FIREBASE_REF)").childByAppendingPath("WMB").childByAppendingPath(userID)
+    
+    return currentUserStatus!
+}
+
 //MARK: Geofire Settings
 let GEOFIRE_REF = FIREBASE_REF
 let GEOFIRE = GeoFire(firebaseRef: GEOFIRE_REF.childByAppendingPath("user_locations"))

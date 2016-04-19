@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 
 class LoginViewController: UIViewController{
@@ -15,18 +16,15 @@ class LoginViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && CURRENT_USER.authData != nil{
+            self.setUserData(CURRENT_USER.authData)
+            self.pushToHomeScreen()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //If user is authenticated and logged in. use this logic to move to the tabbed view
-        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && CURRENT_USER.authData != nil{
-            
         }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,24 +43,9 @@ class LoginViewController: UIViewController{
             FIREBASE_REF.authUser(email, password: password, withCompletionBlock: { (error, authData) -> Void in
                 if error == nil
                 {
-                    //Set user data
-                    NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
-                    
-                    CURRENT_USER.observeSingleEventOfType(.Value, withBlock:{snapshot in
-                    print(snapshot.value)
-                    UserData.sharedInstance.setUserData(authData.uid, snapshot: snapshot)
-                        
+                   self.setUserData(authData)
                     print( "from user data \(UserData.sharedInstance.first_name)")
-                        
-                })
-                    
-                    
-                   
-                    //push to Home Screen
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
-                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                    appDelegate.window?.rootViewController = tabBarController
+                   self.pushToHomeScreen()
                     
                 } else {
                     print(error)
@@ -77,8 +60,6 @@ class LoginViewController: UIViewController{
             
         }
         
-        //if login successful, make tabviewcontroller the new view
-       
     }
     
     
@@ -87,9 +68,26 @@ class LoginViewController: UIViewController{
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
     }
     
+    func pushToHomeScreen(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = tabBarController
+    }
+    
+    func setUserData(authData: FAuthData!){
+        NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+        
+        CURRENT_USER.observeSingleEventOfType(.Value, withBlock:{snapshot in
+            print(snapshot.value)
+            UserData.sharedInstance.setUserData(authData.uid, snapshot: snapshot)
+        })
+    }
 
     /*
     // MARK: - Navigation
+     
+     
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
