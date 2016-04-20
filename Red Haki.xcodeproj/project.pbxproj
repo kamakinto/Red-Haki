@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D4001B71DCE0B9FBC2C7F537 /* Pods_Red_Haki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422ED1C0117F4099FEABB86F /* Pods_Red_Haki.framework */; };
 		E22FAE191CC7E40A00E6109D /* CloudSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22FAE181CC7E40A00E6109D /* CloudSettingsViewController.swift */; };
+		E22FAE1B1CC7FC9900E6109D /* WitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22FAE1A1CC7FC9900E6109D /* WitnessViewController.swift */; };
 		E247352A1CB7D234000AE110 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24735291CB7D234000AE110 /* MapKit.framework */; };
 		E247352E1CB7E399000AE110 /* NotSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E247352D1CB7E399000AE110 /* NotSafeViewController.swift */; };
 		E269C1871CB6B8AE009456D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C1861CB6B8AE009456D7 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		422ED1C0117F4099FEABB86F /* Pods_Red_Haki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Red_Haki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D6735038D72FF624608B24 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22FAE181CC7E40A00E6109D /* CloudSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudSettingsViewController.swift; sourceTree = "<group>"; };
+		E22FAE1A1CC7FC9900E6109D /* WitnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WitnessViewController.swift; sourceTree = "<group>"; };
 		E24735291CB7D234000AE110 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E247352D1CB7E399000AE110 /* NotSafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotSafeViewController.swift; sourceTree = "<group>"; };
 		E269C1831CB6B8AE009456D7 /* Red Haki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Red Haki.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 				E2E54C1A1CBE96E5002BA956 /* WatchMyBackViewController.swift */,
 				E2E54C1C1CBEA248002BA956 /* MessageComposer.swift */,
 				E22FAE181CC7E40A00E6109D /* CloudSettingsViewController.swift */,
+				E22FAE1A1CC7FC9900E6109D /* WitnessViewController.swift */,
 			);
 			path = "Red Haki";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				E2E54C131CB929CC002BA956 /* LocationService.swift in Sources */,
 				E2E54C0F1CB888C2002BA956 /* LoginViewController.swift in Sources */,
 				E2E54C091CB80763002BA956 /* AccidentViewController.swift in Sources */,
+				E22FAE1B1CC7FC9900E6109D /* WitnessViewController.swift in Sources */,
 				E2E54C071CB8073F002BA956 /* PoliceViewController.swift in Sources */,
 				E269C1871CB6B8AE009456D7 /* AppDelegate.swift in Sources */,
 				E2E54C111CB88F76002BA956 /* CreateAccountViewController.swift in Sources */,
