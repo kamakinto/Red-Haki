@@ -101,10 +101,13 @@ class LookAroundViewController: UIViewController, MKMapViewDelegate {
     @IBAction func safetySwitchButton(sender: AnyObject) {
         //change state of safety label
         if safetyStatusSwitch.on{
+            
             safetyStatusLabel.text = "Not Safe"
+            
             //update firebase status
             let status_flag = ["status_flag": "true"]
             CURRENT_USER.updateChildValues(status_flag)
+            
             //navigate them to the Not Safe view Controller
             tabBarController?.selectedIndex = 2
             tabBarController?.tabBar.hidden = false

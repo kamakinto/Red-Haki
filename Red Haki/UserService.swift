@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import CoreLocation
+import MapKit
 
 
 class UserData {
@@ -114,6 +115,7 @@ class WMBUserStatus{
     var destLat: Double = -1
     var media_url: String = ""
     var walkingHome: Bool = false
+    var destPin: MKPlacemark? = nil
     
     func setUserStatusData(snapshot: FDataSnapshot){
         let json = snapshot.value as! Dictionary<String, AnyObject>

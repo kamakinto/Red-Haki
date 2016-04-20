@@ -142,7 +142,7 @@
                                 <rect key="frame" x="20" y="463" width="560" height="66"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Watch My Back! "/>
-                                <state key="disabled" title="Choose Your Desintation Above"/>
+                                <state key="disabled" title="Choose A Desintation"/>
                                 <connections>
                                     <action selector="watchMyBackButton:" destination="ehq-TV-JKt" eventType="touchUpInside" id="4rq-gi-pda"/>
                                 </connections>

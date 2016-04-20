@@ -18,7 +18,8 @@ class WatchMyBackViewController: UIViewController{
     var resultSearchController:UISearchController? = nil
     var selectedPin: MKPlacemark? = nil
     var destLong: Double = 0.0
-    var destLat: Double? = 0.0
+    var destLat: Double = 0.0
+    var finalDestination: MKPointAnnotation? = nil
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var watchMyBackButton: UIButton!
     @IBOutlet weak var instructionLabel: UILabel!
@@ -32,9 +33,7 @@ class WatchMyBackViewController: UIViewController{
         self.safeButton.hidden = true
         self.watchMyBackButton.enabled = false
             
-            if WMBUserStatus.sharedInstance.walkingHome {
-               self.safeButton.hidden = false
-            }
+        
         
             
         let locationSearchTable = storyboard!.instantiateViewControllerWithIdentifier("LocationSearchTable") as! LocationSearchTable
@@ -55,21 +54,28 @@ class WatchMyBackViewController: UIViewController{
     }
     
     override func viewWillAppear(animated: Bool) {
-        //check if WMB is turned on. If so: 
-        //get the destination, and current location to set up map
-        //display the clear button - clears annotations, allows them to pick another destination
-        //display the I am safe now button - stops the firebase tracking
         
-        if WMBUserStatus.sharedInstance.walkingHome{
-            let lat = WMBUserStatus.sharedInstance.destLat
-            let long = WMBUserStatus.sharedInstance.destLong
-            
-            let anno = MyAnnotation(coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long ), title: "Test Anno", subtitle: "Info")
-            mapView.addAnnotation(anno)
-            
-            //display clear button to remove annotations
-            //display the i am safe now button
+       if WMBUserStatus.sharedInstance.walkingHome{
+            self.safeButton.hidden = false
+            //drop pin
+            let annotation = MKPointAnnotation()
+            let placemark =  WMBUserStatus.sharedInstance.destPin
+            annotation.coordinate = (placemark?.coordinate)!
+            annotation.title = placemark!.name
+            if let city = placemark!.locality,
+                let state = placemark!.administrativeArea {
+                annotation.subtitle = "\(city) \(state)"
             }
+            mapView.addAnnotation(annotation)
+            finalDestination = annotation
+            let span = MKCoordinateSpanMake(0.05, 0.05)
+            let region = MKCoordinateRegionMake(placemark!.coordinate, span)
+            mapView.setRegion(region, animated: true)
+            
+            //show safe button
+                }else{
+                self.safeButton.hidden = true
+        }
         
     }
     
@@ -85,7 +91,7 @@ class WatchMyBackViewController: UIViewController{
         let lat = LocationService.sharedInstance.latitude
         
         //configure data and start geolocation
-        WMBUserStatus.sharedInstance.updateUserStatus("Watch My Back", desc: "Going Home", date: Timestamp, longitude: long, latitude: lat, destLong: destLong, destLat: destLat!, mediaUrl: "Https://", walkingHome: true)
+        WMBUserStatus.sharedInstance.updateUserStatus("Watch My Back", desc: "Going Home", date: Timestamp, longitude: long, latitude: lat, destLong: destLong, destLat: destLat, mediaUrl: "Https://", walkingHome: true)
         
         let wmbStatusUpdate = WMBUserStatus.sharedInstance.toJson()
     
@@ -94,6 +100,14 @@ class WatchMyBackViewController: UIViewController{
         //generate link to send in text message
         //Send Text Message
         if(messageComposer.canSendText()){
+            
+            if WMBUserStatus.sharedInstance.walkingHome {
+                self.safeButton.hidden = false
+                self.watchMyBackButton.enabled = false
+            }else{
+                self.safeButton.hidden = true
+            }
+
             let messageComposeVC = messageComposer.configuredMessageComposeViewController()
             presentViewController(messageComposeVC, animated: true, completion: nil)
         } else {
@@ -107,7 +121,12 @@ class WatchMyBackViewController: UIViewController{
     
     @IBAction func safeButton(sender: AnyObject) {
         
-        //add logic to stop tracking in firebase
+        //add logic to stop tracking in firebase and delete record
+        WMBUserStatus.sharedInstance.walkingHome = false
+        CURRENT_USER_STATUS_WMB.removeValue()
+        //clear annotation
+        mapView.removeAnnotations(mapView.annotations)
+        //take them back to witness screen
     }
     
 }
@@ -117,12 +136,18 @@ extension WatchMyBackViewController: HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark){
         //cache the pin
         selectedPin = placemark
+        
         destLong = (selectedPin?.coordinate.longitude)!
         destLat = (selectedPin?.coordinate.longitude)!
+        WMBUserStatus.sharedInstance.destPin = placemark
+        WMBUserStatus.sharedInstance.destLong = destLong
+        WMBUserStatus.sharedInstance.destLat = destLat
+        
         
         //clear existing pins
         mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
+       
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
         if let city = placemark.locality,
@@ -135,9 +160,6 @@ extension WatchMyBackViewController: HandleMapSearch {
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         mapView.setRegion(region, animated: true)
         
-        //set pin location in user details
-        //push destination to firebase
-        //unhide the watch my back button
         self.watchMyBackButton.enabled = true
         
     }
