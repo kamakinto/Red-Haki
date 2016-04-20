@@ -84,10 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Red Haki/Alamofire.framework"
   install_framework "Pods-Red Haki/Firebase.framework"
   install_framework "Pods-Red Haki/GeoFire.framework"
+  install_framework "Pods-Red Haki/SwiftyDropbox.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Red Haki/Alamofire.framework"
   install_framework "Pods-Red Haki/Firebase.framework"
   install_framework "Pods-Red Haki/GeoFire.framework"
+  install_framework "Pods-Red Haki/SwiftyDropbox.framework"
 fi

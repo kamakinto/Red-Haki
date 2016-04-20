@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9F8707680BD53AAD47ABB061'
+               BlueprintIdentifier = 'F48F7AB8E3B49C5E33CAE60F'
                BlueprintName = 'Pods-Red Haki'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_Red_Haki.framework'>

@@ -19,7 +19,7 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     func configuredMessageComposeViewController() -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self
-        messageComposeVC.recipients = textMessageRecipients
+        //messageComposeVC.recipients = textMessageRecipients
         messageComposeVC.body = "Hey! so I'm walking home, come walk with me by clicking this link!"
         return messageComposeVC
     }

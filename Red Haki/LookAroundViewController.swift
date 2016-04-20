@@ -112,7 +112,7 @@ class LookAroundViewController: UIViewController, MKMapViewDelegate {
             tabBarController?.selectedIndex = 2
             tabBarController?.tabBar.hidden = false
             self.navigationController?.popToRootViewControllerAnimated(false)
-        }else{
+                    }else{
             safetyStatusLabel.text = "Safe"
             GEOFIRE.removeKey(geo_user)
             //update firebase status

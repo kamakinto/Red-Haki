@@ -41,9 +41,6 @@ class PoliceViewController: UIViewController, UIPickerViewDelegate{
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(policeOptions[row])
         policePicked = policeOptions[row]
-
-    
-    
 }
 
     @IBAction func policeButton(sender: AnyObject) {
@@ -62,6 +59,7 @@ class PoliceViewController: UIViewController, UIPickerViewDelegate{
         tabBarController?.selectedIndex = 1
         tabBarController?.tabBar.hidden = false
         self.navigationController?.popToRootViewControllerAnimated(false)
+       // self.navigationController?.popToViewController(UIViewController., animated: <#T##Bool#>)
     
         
     }

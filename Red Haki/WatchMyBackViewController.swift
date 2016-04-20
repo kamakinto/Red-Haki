@@ -127,6 +127,8 @@ class WatchMyBackViewController: UIViewController{
         //clear annotation
         mapView.removeAnnotations(mapView.annotations)
         //take them back to witness screen
+        self.safeButton.hidden = true
+       navigationController?.popViewControllerAnimated(true)
     }
     
 }
