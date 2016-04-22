@@ -10,14 +10,20 @@ import UIKit
 import MobileCoreServices
 import AVKit
 import AVFoundation
+import SwiftyDropbox
 
 class WitnessViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var pictureStatusLabel: UILabel!
+    @IBOutlet weak var loginStatusLabel: UILabel!
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     let saveFileName = "/test.mp4"
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if (Dropbox.authorizedClient != nil) {
+            loginStatusLabel.text = "You are Logged In"
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -34,6 +40,7 @@ class WitnessViewController: UIViewController, UIImagePickerControllerDelegate, 
                 imagePicker.mediaTypes = [kUTTypeMovie as String]
                 imagePicker.allowsEditing = false
                 imagePicker.delegate = self
+                
                 
                 presentViewController(imagePicker, animated: true, completion: {})
            }else{
@@ -82,7 +89,29 @@ class WitnessViewController: UIViewController, UIImagePickerControllerDelegate, 
         } else {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 // What you want to happen
+                //save video to dropbox
+                self.pictureStatusLabel.text = "Picture was saved!"
             })
+        }
+    }
+    
+    func uploadToDropbox(){
+        //make sure they are logged in. if not, show label to log them into dropbox
+        if let client = Dropbox.authorizedClient{
+            
+            client.files.listFolder(path: "").response { response, error in
+                print("*** List folder ***")
+                if let result = response {
+                    print("Folder contents:")
+                    for entry in result.entries {
+                        print(entry.name)
+                    }
+                } else {
+                    print(error!)
+                }
+            }
+
+            
         }
     }
     
