@@ -14,15 +14,16 @@ import SwiftyDropbox
 
 class WitnessViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var pictureStatusLabel: UILabel!
-    @IBOutlet weak var loginStatusLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
     let imagePicker: UIImagePickerController! = UIImagePickerController()
-    let saveFileName = "/test.mp4"
+    let saveFileName = "/Incident-Recording-\(Timestamp).mp4"
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if (Dropbox.authorizedClient != nil) {
-            loginStatusLabel.text = "You are Logged In"
+            self.progressBar.hidden = true
+            self.progressLabel.hidden = true
         }
         // Do any additional setup after loading the view.
     }
@@ -53,6 +54,7 @@ class WitnessViewController: UIViewController, UIImagePickerControllerDelegate, 
         print("Got a video")
         
         if let pickedVideo:NSURL = (info[UIImagePickerControllerMediaURL] as? NSURL) {
+            
             // Save video to the main photo album
             let selectorToCall = Selector("videoWasSavedSuccessfully:didFinishSavingWithError:context:")
             UISaveVideoAtPathToSavedPhotosAlbum(pickedVideo.relativePath!, self, selectorToCall, nil)
@@ -64,6 +66,7 @@ class WitnessViewController: UIViewController, UIImagePickerControllerDelegate, 
             let documentsDirectory: AnyObject = paths[0]
             let dataPath = documentsDirectory.stringByAppendingPathComponent(saveFileName)
             videoData?.writeToFile(dataPath, atomically: false)
+            
             
         }
         
@@ -90,29 +93,46 @@ class WitnessViewController: UIViewController, UIImagePickerControllerDelegate, 
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 // What you want to happen
                 //save video to dropbox
-                self.pictureStatusLabel.text = "Picture was saved!"
+                let paths = NSSearchPathForDirectoriesInDomains(
+                    NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+                let documentsDirectory: AnyObject = paths[0]
+                let dataPath = documentsDirectory.stringByAppendingPathComponent(self.saveFileName)
+                //self.pictureStatusLabel.text = "Picture was saved at: \(dataPath)"
+                self.progressLabel.hidden = false
+                self.progressLabel.text = "uploading..."
+                self.progressBar.hidden = false
+                self.uploadToDropbox(dataPath)
             })
         }
     }
     
-    func uploadToDropbox(){
+    func uploadToDropbox(filePath: String!){
         //make sure they are logged in. if not, show label to log them into dropbox
         if let client = Dropbox.authorizedClient{
-            
-            client.files.listFolder(path: "").response { response, error in
-                print("*** List folder ***")
-                if let result = response {
-                    print("Folder contents:")
-                    for entry in result.entries {
-                        print(entry.name)
+            let fileUrl = NSURL(string: filePath)
+           
+            client.files.upload(path: "/red-haki\(self.saveFileName)", mode: .Add, autorename: true, clientModified: nil, mute: false, body: fileUrl!).progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
+                
+                print("bytesRead: \(bytesRead)")
+                print("totalBytesRead: \(totalBytesRead)")
+                print("totalBytesExpectedToRead: \(totalBytesExpectedToRead)")
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                   // self.progressLabel.text = "\((totalBytesRead/totalBytesExpectedToRead) * 100)%"
+                    self.progressBar.setProgress(Float(totalBytesRead)/Float(totalBytesExpectedToRead), animated: true)
+                    self.progressLabel.text = "uploading..."
+                    if totalBytesExpectedToRead == totalBytesRead {
+                        self.progressBar.hidden = true
+                        self.progressLabel.hidden = true
                     }
-                } else {
-                    print(error!)
-                }
+                    
+                });
             }
-
             
-        }
+                   
+            
+                
+                        }
     }
     
     // MARK: Utility methods for app
