@@ -20,7 +20,7 @@ class WitnessViewController: UIViewController, UIImagePickerControllerDelegate, 
     let saveFileName = "/Incident-Recording-\(Timestamp).mp4"
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor.darkGrayColor()
         if (Dropbox.authorizedClient != nil) {
             self.progressBar.hidden = true
             self.progressLabel.hidden = true

@@ -19,6 +19,7 @@ class NotSafeViewController: UITableViewController{
         names = ["Stranger","Police","Accident","Watch My Back","Other"]
         identities = ["Stranger", "Police", "Accident", "Watch My Back", "Other"]
         subtitles = ["You feel unsafe around a stranger", "You feel unsafe around the Police", "There has been an accident","Have a friend watch your back", "You feel unsafe"]
+        self.view.backgroundColor = UIColor.darkGrayColor()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,7 +32,9 @@ class NotSafeViewController: UITableViewController{
         
         cell?.textLabel!.text = names[indexPath.row]
         cell?.detailTextLabel!.text = subtitles[indexPath.row]
-        
+        cell?.backgroundColor = UIColor.darkGrayColor()
+        cell?.textLabel?.textColor = UIColor.whiteColor()
+        cell?.detailTextLabel?.textColor = UIColor.whiteColor()
         return cell!
         
     }

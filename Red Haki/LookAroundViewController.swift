@@ -23,6 +23,7 @@ class LookAroundViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.darkGrayColor()
     let geofireUserKey = UserData.sharedInstance.uid
     var Lat = LocationService.sharedInstance.latitude
     var Long = LocationService.sharedInstance.longitude

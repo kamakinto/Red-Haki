@@ -107,7 +107,7 @@ class WatchMyBackViewController: UIViewController{
             }else{
                 self.safeButton.hidden = true
             }
-
+            
             let messageComposeVC = messageComposer.configuredMessageComposeViewController()
             presentViewController(messageComposeVC, animated: true, completion: nil)
         } else {
@@ -140,7 +140,7 @@ extension WatchMyBackViewController: HandleMapSearch {
         selectedPin = placemark
         
         destLong = (selectedPin?.coordinate.longitude)!
-        destLat = (selectedPin?.coordinate.longitude)!
+        destLat = (selectedPin?.coordinate.latitude)!
         WMBUserStatus.sharedInstance.destPin = placemark
         WMBUserStatus.sharedInstance.destLong = destLong
         WMBUserStatus.sharedInstance.destLat = destLat
